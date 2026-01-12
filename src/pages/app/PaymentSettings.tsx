@@ -10,10 +10,10 @@ import { supabase } from '@/integrations/supabase/client';
 import { CreditCard, Eye, EyeOff, Key, Shield, CheckCircle2, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface PaymentConfig {
+interface PaymentConfigRow {
   id: string;
   user_id: string;
-  pixgo_api_key: string;
+  pixgo_api_key: string | null;
   is_configured: boolean;
   created_at: string;
   updated_at: string;
@@ -37,14 +37,15 @@ export default function PaymentSettings() {
   const checkExistingConfig = async () => {
     try {
       const { data, error } = await supabase
-        .from('payment_configs')
+        .from('payment_configs' as any)
         .select('*')
         .eq('user_id', user?.id)
         .single();
 
       if (data && !error) {
-        setApiKey(data.pixgo_api_key || '');
-        setIsConfigured(data.is_configured);
+        const config = data as unknown as PaymentConfigRow;
+        setApiKey(config.pixgo_api_key || '');
+        setIsConfigured(config.is_configured);
       }
     } catch (err) {
       // No config exists yet
@@ -66,14 +67,14 @@ export default function PaymentSettings() {
     setLoading(true);
     try {
       const { data: existing } = await supabase
-        .from('payment_configs')
+        .from('payment_configs' as any)
         .select('id')
         .eq('user_id', user?.id)
         .single();
 
       if (existing) {
         await supabase
-          .from('payment_configs')
+          .from('payment_configs' as any)
           .update({
             pixgo_api_key: apiKey,
             is_configured: true,
@@ -82,7 +83,7 @@ export default function PaymentSettings() {
           .eq('user_id', user?.id);
       } else {
         await supabase
-          .from('payment_configs')
+          .from('payment_configs' as any)
           .insert({
             user_id: user?.id,
             pixgo_api_key: apiKey,

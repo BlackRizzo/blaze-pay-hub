@@ -14,6 +14,7 @@ import {
   LogOut,
   ChevronDown,
   Bell,
+  CreditCard,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -26,6 +27,7 @@ const navItems = [
   { href: '/app/randomizadores', label: 'Randomizadores', icon: Shuffle },
   { href: '/app/bots', label: 'Meus Bots', icon: Bot },
   { href: '/app/relatorios', label: 'Relatórios', icon: BarChart3 },
+  { href: '/app/pagamento', label: 'Pagamento', icon: CreditCard },
   { href: '/app/conta', label: 'Minha Conta', icon: User },
 ];
 

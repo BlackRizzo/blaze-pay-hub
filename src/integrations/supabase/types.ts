@@ -79,6 +79,75 @@ export type Database = {
           },
         ]
       }
+      payments: {
+        Row: {
+          amount_cents: number
+          created_at: string
+          customer_cpf: string | null
+          customer_email: string | null
+          customer_name: string | null
+          customer_phone: string | null
+          description: string | null
+          expires_at: string | null
+          external_id: string | null
+          id: string
+          metadata: Json | null
+          paid_at: string | null
+          pix_code: string | null
+          provider: string
+          provider_payment_id: string | null
+          qr_code_url: string | null
+          status: string
+          updated_at: string
+          user_id: string
+          webhook_url: string | null
+        }
+        Insert: {
+          amount_cents: number
+          created_at?: string
+          customer_cpf?: string | null
+          customer_email?: string | null
+          customer_name?: string | null
+          customer_phone?: string | null
+          description?: string | null
+          expires_at?: string | null
+          external_id?: string | null
+          id?: string
+          metadata?: Json | null
+          paid_at?: string | null
+          pix_code?: string | null
+          provider?: string
+          provider_payment_id?: string | null
+          qr_code_url?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+          webhook_url?: string | null
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string
+          customer_cpf?: string | null
+          customer_email?: string | null
+          customer_name?: string | null
+          customer_phone?: string | null
+          description?: string | null
+          expires_at?: string | null
+          external_id?: string | null
+          id?: string
+          metadata?: Json | null
+          paid_at?: string | null
+          pix_code?: string | null
+          provider?: string
+          provider_payment_id?: string | null
+          qr_code_url?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+          webhook_url?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

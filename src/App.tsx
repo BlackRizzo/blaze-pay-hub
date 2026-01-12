@@ -15,6 +15,7 @@ import RandomizerDetail from "./pages/app/RandomizerDetail";
 import Bots from "./pages/app/Bots";
 import Reports from "./pages/app/Reports";
 import Account from "./pages/app/Account";
+import PaymentSettings from "./pages/app/PaymentSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/app/randomizadores/:id" element={<RandomizerDetail />} />
             <Route path="/app/bots" element={<Bots />} />
             <Route path="/app/relatorios" element={<Reports />} />
+            <Route path="/app/pagamento" element={<PaymentSettings />} />
             <Route path="/app/conta" element={<Account />} />
             
             {/* Catch-all */}
